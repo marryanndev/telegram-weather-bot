@@ -22,7 +22,13 @@ def send_echo(message):
   answer = "В городе " + message.text + " сейчас " + str(temp["temp"]) + "°C\n" \
            + "Максимальная температура: " + str(temp["temp_max"]) + "°C\n" \
            + "Минимальная температура: " + str(temp["temp_min"]) + "°C\n" \
-           + "Влажность: " + str(humidity) + "%\n"
+           + "Влажность: " + str(humidity) + "%\n" \
+           + "Скорость ветра: " + str(wind["speed"]) + "м/с\n" \
+           + "Восход солнца: " + datetime.datetime.fromtimestamp(w.get_sunrise_time()).strftime('%H:%M:%S') \
+           + "\nЗакат солнца: " +datetime.datetime.fromtimestamp(w.get_sunset_time()).strftime('%H:%M:%S') \
+           + "\nПродолжительность дня: " +str(round((w.get_sunset_time() - w.get_sunrise_time()) / 3600,1)) + " часов\n" \
+           + "Продолжительность ночи: " + str(round(24 - (w.get_sunset_time() - w.get_sunrise_time()) / 3600,1)) + " часов\n" \
+           + "\nПонравился бот?\nПереходи @weather_foxit_bot \nи узнавай погоду в любом городе"
            
 
 
